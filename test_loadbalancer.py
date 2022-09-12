@@ -3,7 +3,6 @@
 import pytest
 import requests
 import datetime
-import concurrent.futures
 from loadbalancer import loadbalancer
 
 
@@ -15,8 +14,6 @@ def client():
 
 def test_host_routing_mylb(client):
     result = client.get('/', headers={'Host': 'www.mylb.com'})
-    #assert b'Web Server' in result.data
-    print ('Received: ', result.status_code)
 
 start_time = datetime.datetime.now()
 print ('Starting:', start_time)
